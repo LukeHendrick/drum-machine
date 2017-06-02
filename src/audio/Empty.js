@@ -1,0 +1,32 @@
+var Empty = ['', [
+  {'name': 'Drum Machine',
+   'sound': new Audio(),
+   'key': '7'},
+  {'name': 'Drum Machine',
+   'sound': new Audio(),
+   'key': '8'},
+  {'name': 'Drum Machine',
+   'sound': new Audio(),
+   'key': '9'},
+  {'name': 'Drum Machine',
+   'sound': new Audio(),
+   'key': '4'},
+  {'name': 'Drum Machine',
+   'sound': new Audio(),
+   'key': '5'},
+  {'name': 'Drum Machine',
+   'sound': new Audio(),
+   'key': '6'},
+  {'name': 'Drum Machine',
+   'sound': new Audio(),
+   'key': '1'},
+  {'name': 'Drum Machine',
+   'sound': new Audio(),
+   'key': '2'},
+  {'name': 'Drum Machine',
+   'sound': new Audio(),
+   'key': '3'},
+ ]
+]
+
+export default Empty;
