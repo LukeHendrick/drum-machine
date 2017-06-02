@@ -5,7 +5,8 @@ class Pad extends Component {
     super(props)
 
     this.state = {
-      key: this.props.drum.key
+      key: this.props.drum.key,
+      active: 'default'
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -13,6 +14,9 @@ class Pad extends Component {
   handleKeyPress(e) {
     if (e.key === this.state.key) {
       this.handleClick(e)
+      this.setState({
+        active: 'active'
+      })
     }
   }
   handleClick(e) {
@@ -31,7 +35,7 @@ class Pad extends Component {
   render() {
   return (
     <button className='padBtn' href='#' onClick={this.handleClick} onKeyPress={this.handleKeyPress}>
-      <div className='drumPad'><p className='padTxt'>{this.props.children}</p></div>
+      <div className={'drumPad active'}><p className='padTxt'>{this.props.children}</p></div>
   </button>
   )
 }

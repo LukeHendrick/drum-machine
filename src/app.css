@@ -48,6 +48,11 @@
   outline: none;
 }
 
+.drumPad:active{
+  width: 9.5rem;
+  height: 9.5rem;
+}
+
 .drumPad {
   color: white;
   text-align: center;
