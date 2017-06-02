@@ -18,6 +18,7 @@ class Pad extends Component {
   handleClick(e) {
     var sound = this.props.drum.sound
     var key = this.props.drum.name
+    sound.volume = this.props.vol
     sound.pause();
     sound.currentTime = 0
     sound.play();
