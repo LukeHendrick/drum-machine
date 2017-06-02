@@ -30,7 +30,7 @@ class Pad extends Component {
   render() {
   return (
     <button className='padBtn' href='#' onClick={this.handleClick} onKeyPress={this.handleKeyPress}>
-      <div className='drumPad'></div>
+      <div className='drumPad'><p className='padTxt'>{this.props.children}</p></div>
   </button>
   )
 }

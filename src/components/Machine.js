@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import Pad from './Pad.js';
 import Display from './Display.js'
-import KitSelect from './KitSelect'
-import kick from '../audio/kick-808.wav';
-import clap from '../audio/clap-808.wav';
-import cowbell from '../audio/cowbell-808.wav';
-import hihat from '../audio/hihat-808.wav';
-import crash from '../audio/crash-808.wav';
-import perc from '../audio/perc-808.wav';
-import snare from '../audio/snare-808.wav';
-import tom from '../audio/tom-808.wav';
-import open from '../audio/openhat-808.wav';
+import Button from 'react-bootstrap/lib/Button'
+import _808 from '../audio/_808'
+import _acou from '../audio/_acou'
+
 
 class Machine extends Component {
   constructor(props) {
@@ -18,9 +12,23 @@ class Machine extends Component {
 
     this.state= {
       drum: 'Drum Machine',
-      kit: '808'
+      kit: [_808[0], _808[1]]
     };
     this.updateDrum = this.updateDrum.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    if (this.state.kit[0] === '808') {
+    this.setState({
+      kit: [_acou[0], _acou[1]]
+    })
+  } else {
+    this.setState({
+      kit: [_808[0], _808[1]]
+    })
+  }
   }
 
   updateDrum(value) {
@@ -31,48 +39,18 @@ class Machine extends Component {
 
   render() {
 
-    var drums = [
-      {'name': '808 Tom',
-       'sound': new Audio(tom),
-       'key': '7'},
-      {'name': '808 Perc',
-       'sound': new Audio(perc),
-       'key': '8'},
-      {'name': '808 Cowbell',
-       'sound': new Audio(cowbell),
-       'key': '9'},
-      {'name': '808 ClosedHH',
-       'sound': new Audio(hihat),
-       'key': '4'},
-      {'name': '808 OpenHH',
-       'sound': new Audio(open),
-       'key': '5'},
-      {'name': '808 Crash',
-       'sound': new Audio(crash),
-       'key': '6'},
-      {'name': '808 Kick',
-       'sound': new Audio(kick),
-       'key': '1'},
-      {'name': '808 Snare',
-       'sound': new Audio(snare),
-       'key': '2'},
-      {'name': '808 Clap',
-       'sound': new Audio(clap),
-       'key': '3'},
-    ]
-
-
+    var drums = this.state.kit[1]
     return (
       <div className='box'>
         <ul  className='drumRow'>
           {drums.map((drum, index) =>
-          <Pad updateDrum={this.updateDrum} key={drum.key} drum={drum} />
+          <Pad updateDrum={this.updateDrum} key={drum.key} drum={drum}>{drum.key}</Pad>
           )
           }
         </ul>
         <ul className='controlRow'>
           <Display>{this.state.drum}</Display>
-        <KitSelect>{this.state.kit}</KitSelect>
+        <Button onClick={this.handleClick}>{this.state.kit[0]}</Button>
         </ul>
       </div>
     )
