@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Pad from './Pad.js';
 import Display from './Display.js'
+import KitSelect from './KitSelect'
 import kick from '../audio/kick-808.wav';
 import clap from '../audio/clap-808.wav';
 import cowbell from '../audio/cowbell-808.wav';
@@ -16,7 +17,8 @@ class Machine extends Component {
     super(props);
 
     this.state= {
-      drum: 'Drum Machine'
+      drum: 'Drum Machine',
+      kit: '808'
     };
     this.updateDrum = this.updateDrum.bind(this);
   }
@@ -69,7 +71,8 @@ class Machine extends Component {
           }
         </ul>
         <ul className='controlRow'>
-            <Display>{this.state.drum}</Display>
+          <Display>{this.state.drum}</Display>
+        <KitSelect>{this.state.kit}</KitSelect>
         </ul>
       </div>
     )

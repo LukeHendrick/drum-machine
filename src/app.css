@@ -1,5 +1,5 @@
 .box {
-  width: 60rem;
+  width: 70rem;
   height: 38rem;
   background: #918b8c;
   margin: auto;
@@ -7,15 +7,20 @@
   box-shadow: 10px 10px 15px black;
 }
 
-button {
+.btn {
+  font-size: 20px;
+  margin-left: 80px;
+}
+
+.padBtn {
   margin: -10px;
   border: none;
   background: transparent;
 }
-.btn:focus {
+.padBtn:focus {
   outline:none;
 }
-.btn:active:focus {
+.padBtn:active:focus {
   outline: none;
 }
 
@@ -50,7 +55,7 @@ ul {
   list-style: none;
 }
 .screen {
-  width: 11rem;
+  width: 20rem;
   margin-left: 20px;
   margin-bottom: 10px;
   box-shadow: 0 0 5px white inset;
